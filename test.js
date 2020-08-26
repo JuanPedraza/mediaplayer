@@ -27,14 +27,35 @@
 // number.operar()
 
 
-let moreAsync = () => {
-    console.log("Start");
-    setTimeout(() => {
-        console.log('SetTimeOut');
-    }, 0);    
-    Promise.resolve('Promise 1').then(msg => console.log(msg))
-    Promise.resolve('Promise 2').then(msg => console.log(msg))
-    console.log('End')
+// let moreAsync = () => {
+//     console.log("Start");
+//     setTimeout(() => {
+//         console.log('SetTimeOut');
+//     }, 0);    
+//     Promise.resolve('Promise 1').then(msg => console.log(msg))
+//     Promise.resolve('Promise 2').then(msg => console.log(msg))
+//     console.log('End')
+// }
+
+// moreAsync()
+
+// Secuencia fibonacci
+
+
+function* fibonacci(){
+    let a = 1;
+    let b = 1;
+    while(true){
+        const nextNumber = a + b
+        a = b
+        b = nextNumber
+        yield nextNumber
+    }
 }
 
-moreAsync()
+const gen = fibonacci();
+
+console.log(gen.next());
+console.log(gen.next()); 
+console.log(gen.next()); 
+console.log(gen.next());  
