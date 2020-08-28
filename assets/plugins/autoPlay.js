@@ -1,9 +1,11 @@
+import mediaPlayer from '../mediaplayer.js';
+
 function autoPlay(){}
 
 autoPlay.prototype.run = function (player) {
-    if(!player.muted){
+    if(!player.media.muted){
 
-        player.muted = true
+        player.media.muted = true
     }
     player.play()
 }
